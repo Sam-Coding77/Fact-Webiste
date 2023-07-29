@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="QuizResponsive.css">
+  <Title>GoFacts</Title>
+  <style>
+    /* Header styling */
+    .header{
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family :Georgia, 'Times New Roman', Times, serif;
+      padding: 20px;
+      font-size: 20px
+    }
+    /* CSS Styling for navigation bar and each of its list element */
+    .navigation {
+            list-style: none;
+            margin: 0;
+            padding: 0px;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navigation li {
+            float: left;
+        }
+
+        .navigation li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 13px 50px;
+            text-decoration: none;
+        }
+
+        /* Change background-color of the active page in the navigation bar */
+        .navigation li.active {
+            background-color: #4CAF50;
+        }
+
+      .main {
+        font-family :Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        background-color: whitesmoke;
+        margin-top: 15px;
+        margin-left: 330px;
+        border-radius: 20px;
+        width: 500px;
+        height: 40vh;
+        border-color: grey;
+        border-style: groove;
+        text-align: center;
+        
+      }
+
+      /* CSS styling to align all the multiple choice answers */
+      .answer-container {
+          display: flex;
+          flex-direction: column;
+          height: 50%;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .p2{
+          margin: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .result{
+          font-size: 24px;
+          font-weight: bold;
+          margin-top: 60px;
+
+        }
+
+        .result :hover{
+          cursor: pointer;
+          text-decoration: underline;
+          color: #008000;
+        }
+
+        .p2 label {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0px;
+          margin-left: -200px;
+        }
+
+        .p2 input[type="radio"] {
+          margin-right: 10px;
+        }
+
+
+
+      .p1 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      label {
+        font-size: 18px;
+        font-weight: normal;
+      }
+
+      /* Change colour of answer where mouse is hovered */
+
+      label:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: #008000;
+      }
+
+      /* Make answer bold when it is selected */
+      input[type="radio"]:checked + label {
+        font-weight: bold;
+        
+      }
+
+      input[type="radio"]:not(:checked) + label {
+        color: #333;
+      }
+
+      /* Styling for the next button */
+      button[class="button"]{
+        margin-top: 0px;
+        font-size: 18px;
+        background-color : black;
+        border-radius: 5px;
+        color: white;
+      }
+
+      /* Footer Styling */
+      .footer{
+          background-color: black;
+          color: white;
+          text-align: center;
+          font-family :Georgia, 'Times New Roman', Times, serif;
+          margin-top : 30px;
+          padding : 7px;
+          font-size: 17px
+        }
+
+  </style>
+	<body>
+    <div>
+      <!-- Creating a header which includes the webiste's logo -->
+      <header class="header">
+        <h1><img src = Logo.png alt = "Logo" width = "12%" height = "12%"></h1>
+      </header>
+    </div>
+    <div>
+      <nav>
+        <ul class="navigation">
+          <!-- Adding all the pages to the naivgation bar -->
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Facts.html">Facts</a></li>
+          <li class="active"><a href="Quiz.html">Quiz</a></li>
+      </ul>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="p1" id="question">
+        <p></p>
+      </div>
+      <!-- Creating div to display the multiple-choice answers as radio buttons-->
+      <div class="answer-container">
+        <div class="p2">
+          <label for="a">
+            <input type="radio" name="answer" value="a">
+            <span id="a1"></span>
+          </label>
+          <label for="b">
+            <input type="radio" name="answer" value="b">
+            <span id="a2"></span>
+          </label>
+          <label for="c">
+            <input type="radio" name="answer" value="c">
+            <span id="a3"></span>
+          </label>
+          <label for="d">
+            <input type="radio" name="answer" value="d">
+            <span id="a4"></span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <!-- Creating the next button -->
+        <button class="button">Next</button>
+      </div>
+      <!-- Creating div to display the final score of user -->
+      <div class="result" style="display: none;" id="score1">
+        <h2>Score</h2>
+        <p style="font-weight: bold;"></p>
+      </div>
+    </div>
+    
+
+    <script>
+
+      // All Questions For Quiz
+      var questions = ["What color is a banana?", 
+                        "What sound does a cat make?",
+                      "Which day comes after Saturday?",
+                    "Which animal says 'moo'?",
+                  "What is the name of our planet?",
+                  "What comes after 2?",
+              "How many fingers do you have?",
+            "Which is the highest mountain in the world?",
+          "What is the name of the season when it snows?",
+          "How many wheels does a bicycle have?",
+          "How many days are there in a week?",
+          "What color is the sky?",
+          "What is the name of the first month of the year?",
+          "How many hearts does an octopus have?",
+          "Which is the fastest land-animal in the world?",
+          "How many wings does a bird have?",
+          "What percentage of Earth is covered by water?",
+          "Which is the longest wall in the world?",
+          "How many colors are there in a rainbow?",
+          "How long can a snail fall asleep for?"
+          ]
+
+      // All Answers For Quiz
+      var answers = [
+        ["Blue", "Red", "Yellow", "Green"], 
+        ["Meow", "Woof", "Moo", "Quack"],
+        ["Friday", "Sunday", "Wednesday", "Thursday"],
+        ["Cat", "Cow", "Dog", "Horse"],
+        ["Mars", "Jupiter","Earth", "Saturn"],
+        ["4", "5", "1", "3"],
+        ["10", "5", "7", "9"],
+        ["Mount Fuji", "Mount Kilimanjaro", "Mount Everest", "Mount Blanc"],
+        ["Autumn", "Summer", "Spring", "Winter"],
+        ["2", "3", "4", "5"],
+        ["5", "6", "7", "8"],
+        ["Red", "Orange", "Green", "Blue"],
+        ["January", "February", "March", "April"],
+        ["1", "2", "3", "4"],
+        ["Cheetah", "Lion", "Tiger", "Leopard"],
+        ["2", "4", "6", "8"],
+        ["100%", "80%", "90%", "70%"],
+        ["The Great Wall of India", "The Great Wall of China", "The Great Wall of America", "The Great Wall of Russia"],
+        ["7", "8", "9", "10"],
+        ["1 year", "2 years", "3 years", "4 years"]  
+    ]
+
+    // Correct Answers For Quiz
+    var correctAnswers = ["c", "a", "b", "b", "c" , "d", "a", "c", "d", "a", "c", "d", "a", "c", "a", "a", "d", "b", "a", "c"];
+    var userAnswers = [];
+
+  var questionIndexes = [];
+  // Generate 5 random question indexes
+  var randomSeed = Date.now();
+  while (questionIndexes.length < 5) {
+    var randomIndex = Math.floor(Math.random(randomSeed) * 20);
+    if (!questionIndexes.includes(randomIndex)) {
+      questionIndexes.push(randomIndex);
+    }
+  }
+  var questionIndex = 0;
+  var score = 0;
+  var mycount = 0;
+
+  function displayQuestion(index) {
+    // Get a random question index from the questionIndexes array
+    var randomIndex = questionIndexes[index];
+    mycount++;
+
+  // Display the question and answer options
+  document.getElementById("question").innerHTML = "<p>" + "Q" + mycount + ") " + questions[randomIndex] + "</p>";
+  document.getElementById("a1").innerHTML = answers[randomIndex][0];
+  document.getElementById("a2").innerHTML = answers[randomIndex][1];
+  document.getElementById("a3").innerHTML = answers[randomIndex][2];
+  document.getElementById("a4").innerHTML = answers[randomIndex][3];
+
+  // Clear the selected answer option
+  var radioButtons = document.querySelectorAll('input[name="answer"]');
+  radioButtons.forEach(function(button) {
+    button.checked = false;
+  });
+
+  // Change the button text to "Submit" on the last question
+  if (questionIndex === 4) {
+    document.querySelector(".button").innerHTML = "Submit";
+  }
+}
+// Function to move to the next question
+function getNextQuestion() {
+  var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+  
+  if (selectedAnswer) {
+    userAnswers.push(selectedAnswer.value);
+    // Move to the next question if the user has not answered all the questions
+    if (questionIndex < 4) {
+      questionIndex++;
+      displayQuestion(questionIndex);
+      clearSelection();
+      // Check the answers if the user has answered all the questions
+    } else {
+      checkAnswers();
+    }
+  }
+}
+
+// Function to match the user's answers with the correct answers
+function checkAnswers() {
+  
+  for (var i = 0; i < userAnswers.length; i++) {
+    if (userAnswers[i] === correctAnswers[questionIndexes[i]]) {
+      score++;
+    }
+  }
+
+  // Display the score on the screen according to the user's performance
+  document.querySelector(".p1").style.display = "none";
+  document.querySelector(".answer-container").style.display = "none";
+  document.querySelector(".result").style.display = "block";
+  document.querySelector(".button").style.display = "none";
+  if(score >=4)
+  {
+    document.querySelector(".result").style.color = "green";
+    document.getElementById("score1").innerHTML = "You got " + score + " out of 5 questions correct! You are a genius!";
+  }
+  else if(score >=3)
+  {
+    document.querySelector(".result").style.color = "lightyellow";
+    document.getElementById("score1").innerHTML = "You got " + score + " out of 5 questions correct! You are a good student!";
+  }
+  else if(score >=2)
+  {
+    document.querySelector(".result").style.color = "orange";
+    document.getElementById("score1").innerHTML = "You got " + score + " out of 5 questions correct! You can do better!";
+  }
+  else if(score >=1)
+  {
+    document.querySelector(".result").style.color = "red";
+    document.getElementById("score1").innerHTML = "You got " + score + " out of 5 questions correct! Sorry! You need a lot of improvement!";
+  }
+  else
+  {
+    document.querySelector(".result").style.color = "red";
+    document.getElementById("score1").innerHTML = "You got " + score + " out of 5 questions correct! Sorry! You need a lot of improvement!";
+  }
+}
+
+// Displaying the first question
+displayQuestion(questionIndex);
+
+// Adding a click event listener to the "Next" button
+document.querySelector(".button").addEventListener("click", getNextQuestion);
+
+
+
+    </script>
+    <!-- Defining Footer Class -->
+      <div>
+      <footer class="footer">
+        <p>&copy; GoFacts 2023 . All Rights Reserved </p>
+      </footer>
+    </div>
+    
+    
+  </body>
+
+</html>
+

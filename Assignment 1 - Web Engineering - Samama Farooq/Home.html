@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="HomeResponsive.css">
+  <Title>GoFacts</Title>
+  <style>
+    /* CSS Styling for Header */
+    .header{
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family :Georgia, 'Times New Roman', Times, serif;
+      padding: 20px;
+      font-size: 20px
+    }
+
+    /* CSS Styling for Navigation bar */
+    .navigation {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navigation li {
+            float: left;
+        }
+
+        .navigation li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 13px 50px;
+            text-decoration: none;
+        }
+        /* Change bg-colour of active page */
+        .navigation li.active {
+            background-color: #4CAF50;
+        }
+
+
+        /* CSS Styling for Main content */
+        .main {
+          background-color: #f1f1f1;
+          padding: 28px;
+          font-family :Georgia, 'Times New Roman', Times, serif;
+          font-size: 15px
+        }
+
+        /* class to define size of text content */
+        .p1{
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        /* Class to define size of text content */
+        .p2 {
+          font-size: 17px;
+          text-align: left;
+        }
+        
+        /* CSS Styling for Footer */
+        .footer{
+          background-color: black;
+          color: white;
+          text-align: center;
+          font-family :Georgia, 'Times New Roman', Times, serif;
+          margin-top : 12px;
+          padding : 7px;
+          font-size: 17px
+        }
+
+  </style>
+	<body>
+    <div>
+      <header class="header">
+        <h1><img src = Logo.png alt = "Logo" width = "40%" height = "40%"></h1>
+      </header>
+    </div>
+    <div>
+      <nav>
+        <!--Creating Navigation bar containing all pages -->
+        <ul class="navigation">
+
+          <li class="active"><a href="Home.html">Home</a></li>
+          <li><a href="Facts.html">Facts</a></li>
+          <li><a href="Quiz.html">Quiz</a></li>
+      </ul>
+      </nav>
+    </div>
+    <div>
+      <!-- Defining main class to show the content text -->
+      <main class = "main">
+        <p class="p1">Welcome to our fun and informative facts page for pre-schoolers!</p>
+      <div class = p2>
+       <p>Here, you'll discover a world full of interesting and exciting facts about animals, nature, science, and much more! Our goal is to make learning fun and engaging for young children, so we've put together a collection of fun facts that will spark their curiosity and inspire them to learn more about the world around them.</p>
+      </div>
+      </main>
+    
+    <div>
+      <!-- Creating footer class -->
+      <footer class="footer">
+        <p>&copy; GoFacts 2023 . All Rights Reserved </p>
+      </footer>
+    </div>
+    
+    
+  </body>
+
+</html>
+

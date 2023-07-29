@@ -1,0 +1,83 @@
+@media only screen and (min-width : 400px) and (max-width : 800px)
+{
+
+     .navigation li a {
+          font-size : 10px;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 10px 25px;
+          text-decoration: none;
+      }
+     
+      .answer-container {
+          display: flex;
+          flex-direction: column;
+          height: 50%;
+          justify-content: center;
+          align-items: center;
+        }
+     
+        .p1 {
+          font-size: 15px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        .main {
+          font-family :Georgia, 'Times New Roman', Times, serif;
+          font-weight: bold;
+          background-color: whitesmoke;
+          margin-left: 40px;
+          width: 390px;
+          height: 40vh;
+          border-color: grey;
+          border-style: groove;
+
+          
+        }
+
+}
+
+@media only screen and (min-width : 800px) and (max-width : 1200px)
+{
+
+     .navigation li a {
+          font-size : 10px;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 10px 25px;
+          text-decoration: none;
+      }
+     
+      .answer-container {
+          display: flex;
+          flex-direction: column;
+          height: 50%;
+          justify-content: center;
+          align-items: center;
+        }
+     
+        .p1 {
+          font-size: 15px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        .main {
+          font-family :Georgia, 'Times New Roman', Times, serif;
+          font-weight: bold;
+          background-color: whitesmoke;
+          margin-left: 150px;
+          width: 400px;
+          height: 40vh;
+          border-color: grey;
+          border-style: groove;
+
+          
+        }
+
+}
